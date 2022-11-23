@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+      <h2>Sign up</h2>
+      <form id="new_user" class="new_user" action="/users" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="EgdXqD1C8HEHqJAa4MTdvCm1IgkjpJZ4weo5MH7I_-YcOE4NvkIkFgVsArw3p9je8Yoy95qYKg3H-ehzC9OvLQ" autocomplete="off">
+        <div class="field">
+        <div class="field_with_errors">
+        <%= form_with model: @user, url: user_registration_path do |f| %>
+        <div class="field">
+            <label for="user_name">Name</label><br>
+            <%= f.text_field :name, class:"name" %>
+        </div>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="field">
+          <label for="user_email">Email</label><br>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"email" %>
+        </div>
+        <div class="field">
+          <div class="field_with_errors">
+            <label for="user_password">Password</label>
+          </div>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+          <div class="field_with_errors">
+            <%= f.password_field :password, autocomplete: "new-password", class:"password" %>
+          </div>
+        </div>
+        <div class="field">
+          <label for="user_password_confirmation">Password confirmation</label><br>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"password_confirm" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Sign up", class:"btn btn-sm btn-success" %>
+        </div>
+        <% end %>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%= render "devise/shared/links" %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
